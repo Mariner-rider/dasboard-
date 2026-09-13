@@ -1184,3 +1184,4 @@ export default CanvasSidebar;
 =======
 export default CanvasSidebar;
 >>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
+

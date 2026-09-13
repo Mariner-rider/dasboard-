@@ -546,3 +546,4 @@ const BuilderWorkbench = ({ projectName, messages, onSendMessage, onExit }: Prop
 };
 
 export default BuilderWorkbench;
+

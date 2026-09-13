@@ -154,3 +154,4 @@ const Chips = ({ label, items, value, onChange }: { label: string; items: string
 );
 
 export default PromptToVideo;
+
