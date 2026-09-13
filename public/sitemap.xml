@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://rivinity-opus.lovable.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/app</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/app-builder</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/audio-lab</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/rivinity-lm</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/image-enhancer</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/agent-playground</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/prompt-to-video</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/research</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/tech-news</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/ai-trends</loc><changefreq>daily</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/careers</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/trust</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/security</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/privacy</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/terms</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/eula</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/docs</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/api</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/status</loc><changefreq>daily</changefreq><priority>0.4</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/roadmap</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/support</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://rivinity-opus.lovable.app/marketplace</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+</urlset>
