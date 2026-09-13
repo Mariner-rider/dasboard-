@@ -212,7 +212,11 @@ const AppBuilderMain = () => {
               <Mic className="w-[15px] h-[15px]" />
             </button>
             <button className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11.5px] font-medium text-muted-foreground/50 hover:bg-muted/40 transition-all ml-1">
+<<<<<<< HEAD
               <span className="w-4 h-4 rounded-full bg-[#FF7A18] flex items-center justify-center">
+=======
+              <span className="w-4 h-4 rounded-full bg-[#ff8b28] flex items-center justify-center">
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
                 <Sparkles className="w-2.5 h-2.5 text-primary-foreground" />
               </span>
               arc-1a
@@ -251,7 +255,11 @@ const AppBuilderMain = () => {
             </h1>
 
             {/* Accent line */}
+<<<<<<< HEAD
             <div className="h-1 w-16 rounded-full bg-[#FF7A18] mt-4 mb-8" />
+=======
+            <div className="h-1 w-16 rounded-full bg-[#ff8b28] mt-4 mb-8" />
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
 
             {/* Input */}
             <div className="w-full flex justify-center mb-4">
@@ -301,7 +309,11 @@ const AppBuilderMain = () => {
                 <div
                   className={`max-w-[75%] px-4 py-3 text-[14px] leading-relaxed ${
                     msg.role === "user"
+<<<<<<< HEAD
                       ? "rounded-2xl rounded-br-lg bg-[#FF7A18] text-primary-foreground"
+=======
+                      ? "rounded-2xl rounded-br-lg bg-[#ff8b28] text-primary-foreground"
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
                       : "rounded-2xl rounded-bl-lg glass border border-glass text-foreground/80"
                   }`}
                 >

@@ -48,7 +48,11 @@ const PromptToVideo = () => {
           <div className="max-w-[900px] mx-auto">
             {/* Header */}
             <div className="flex items-center gap-3 mb-6">
+<<<<<<< HEAD
               <div className="w-10 h-10 rounded-2xl bg-[#FF7A18] flex items-center justify-center">
+=======
+              <div className="w-10 h-10 rounded-2xl bg-[#ff8b28] flex items-center justify-center">
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
                 <Clapperboard className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>

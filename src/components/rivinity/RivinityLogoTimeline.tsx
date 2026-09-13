@@ -15,7 +15,10 @@ import part3 from "@/assets/rivinity-logo-part3.png.asset.json";
  *                 continuous ~2s loop. Used inside the Born from Motion section.
  *  - "pulse"    : subtle, low-amplitude breathing loop (~1.2s). Used as a
  *                 loading indicator in place of generic spinners.
+<<<<<<< HEAD
  *  - "float"    : fully static assembled mark.
+=======
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
  *
  * All motion respects `prefers-reduced-motion`.
  */
@@ -121,9 +124,31 @@ export default function RivinityLogoTimeline({
         loopAnimation = tl;
         animations.push(tl);
       } else if (mode === "float") {
+<<<<<<< HEAD
         // Bilkul static: koi rotation ya scaling loop nahi chalegi
         gsap.set(parts, { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 });
         gsap.set(root, { rotate: 0 });
+=======
+        // float — slow continuous rotation of the assembled mark with a gentle
+        // breathing scale. Designed for the AI chat empty state.
+        gsap.set(parts, { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 });
+        const tl = gsap.timeline({ repeat: -1, paused: true });
+        tl.to(root, {
+          rotate: 360,
+          duration: 22,
+          ease: "none",
+          transformOrigin: "50% 50%",
+        }, 0);
+        tl.to(parts, {
+          scale: 1.04,
+          duration: 2.6,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: -1,
+        }, 0);
+        loopAnimation = tl;
+        animations.push(tl);
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
       } else {
         // pulse — loader
         gsap.set(parts, { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 });

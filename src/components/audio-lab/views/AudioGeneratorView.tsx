@@ -129,7 +129,11 @@ const AudioGeneratorView = () => {
           <button
             onClick={handleGenerate}
             disabled={isGenerating || !prompt.trim()}
+<<<<<<< HEAD
             className="w-full lg:w-auto px-5 py-2.5 rounded-xl bg-[#FF7A18]text-primary-foreground text-[13px] font-semibold shadow-sm hover:opacity-90 hover:shadow-md transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2"
+=======
+            className="w-full lg:w-auto px-5 py-2.5 rounded-xl bg-[#ff8b28]text-primary-foreground text-[13px] font-semibold shadow-sm hover:opacity-90 hover:shadow-md transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2"
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
           >
             {isGenerating ? (
               <>
@@ -196,7 +200,11 @@ const AudioGeneratorView = () => {
                   onClick={() => togglePlay(sound.id)}
                   className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-all ${
                     sound.playing
+<<<<<<< HEAD
                       ? "bg-[#FF7A18]"
+=======
+                      ? "bg-[#ff8b28]"
+>>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
                       : "bg-foreground/10 hover:bg-foreground/20"
                   }`}
                 >
