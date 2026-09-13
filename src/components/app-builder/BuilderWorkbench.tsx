@@ -205,11 +205,7 @@ const BuilderWorkbench = ({ projectName, messages, onSendMessage, onExit }: Prop
           {/* Header */}
           <div className="px-4 py-3 border-b border-border/40 flex items-center justify-between">
             <div className="flex items-center gap-2 min-w-0">
-<<<<<<< HEAD
-              <div className="w-6 h-6 rounded-md bg-[#FF7A18] flex items-center justify-center shrink-0">
-=======
               <div className="w-6 h-6 rounded-md bg-[#ff8b28] flex items-center justify-center shrink-0">
->>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
                 <Sparkles className="w-3 h-3 text-primary-foreground" />
               </div>
               <p className="text-[13px] font-semibold text-foreground/85 truncate">{projectName}</p>
@@ -308,11 +304,7 @@ const BuilderWorkbench = ({ projectName, messages, onSendMessage, onExit }: Prop
                 </div>
                 <button
                   onClick={send}
-<<<<<<< HEAD
-                  className="w-8 h-8 rounded-full bg-[#FF7A18] flex items-center justify-center hover:opacity-90"
-=======
                   className="w-8 h-8 rounded-full bg-[#ff8b28] flex items-center justify-center hover:opacity-90"
->>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
                 >
                   <Send className="w-3.5 h-3.5 text-primary-foreground" />
                 </button>
@@ -473,11 +465,7 @@ const BuilderWorkbench = ({ projectName, messages, onSendMessage, onExit }: Prop
                           placeholder="Add a task..."
                           className="flex-1 px-3 py-2 rounded-lg bg-background border border-border/50 text-sm focus:outline-none focus:border-primary/50"
                         />
-<<<<<<< HEAD
-                        <button className="px-3 py-2 rounded-lg bg-[#FF7A18] text-primary-foreground text-sm font-medium">
-=======
                         <button className="px-3 py-2 rounded-lg bg-[#ff8b28] text-primary-foreground text-sm font-medium">
->>>>>>> 340ab9aefea4281b639b7db1d5362b97991789b2
                           Add
                         </button>
                       </div>
@@ -546,4 +534,3 @@ const BuilderWorkbench = ({ projectName, messages, onSendMessage, onExit }: Prop
 };
 
 export default BuilderWorkbench;
-
