@@ -240,7 +240,7 @@ function HistoryList({ query }: { query: string }) {
       >
         <button
           onClick={() => openChat(c.id)}
-          className="flex-1 min-w-0 text-left px-3 py-1.5 text-[15px] truncate cursor-pointer font-medium"
+          className="flex-1 min-w-0 text-left px-3 py-1.5 text-[14.5px] sm:text-[15px] truncate cursor-pointer font-medium"
         >
           {c.title}
         </button>
@@ -382,17 +382,16 @@ const CanvasSidebar = ({
         title={!isOpen ? item.label : undefined}
         className={`flex items-center rounded-xl font-medium transition-all duration-150 cursor-pointer ${
           isOpen
-            ? "w-full px-4 py-3 gap-3.5 text-[16px]"
+            ? "w-full px-3.5 sm:px-4 py-2.5 sm:py-3 gap-3 sm:gap-3.5 text-[15px] sm:text-[16px]"
             : "w-12 h-12 mx-auto justify-center p-0"
         } ${
           isActive
             ? "bg-[#FFF4EC] dark:bg-orange-950/30 text-[#FF5500] font-semibold"
             : "text-[#374151] dark:text-zinc-300 hover:bg-gray-100/70 dark:hover:bg-zinc-800 hover:text-[#111827] dark:hover:text-white"
         }`}
-        style={{ fontSize: isOpen ? "16px" : undefined }}
       >
         <Icon
-          className={`shrink-0 transition-colors w-[22px] h-[22px] ${
+          className={`shrink-0 transition-colors w-5 h-5 sm:w-[22px] sm:h-[22px] ${
             isActive ? "text-[#FF5500]" : "text-[#4B5563] dark:text-zinc-400"
           }`}
           strokeWidth={isActive ? 2.2 : 1.9}
@@ -409,24 +408,30 @@ const CanvasSidebar = ({
   return (
     <>
       <aside
-        className={`sticky top-0 h-screen max-h-screen flex flex-col shrink-0 bg-white dark:bg-zinc-900 border-r border-[#E5E7EB] dark:border-zinc-800 select-none transition-all duration-300 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] z-30 ${
-          isOpen ? "w-[340px] px-5 py-5" : "w-[88px] py-4 px-2 items-center"
+        className={`sticky top-0 h-screen h-[100dvh] max-h-[100dvh] flex flex-col shrink-0 bg-white dark:bg-zinc-900 border-r border-[#E5E7EB] dark:border-zinc-800 select-none transition-all duration-300 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] z-30 max-w-[85vw] md:max-w-none ${
+          isOpen ? "w-[340px] px-4 sm:px-5 py-4 sm:py-5" : "w-[88px] py-4 px-2 items-center"
         }`}
-        style={{ width: isOpen ? "340px" : "88px" }}
+        style={{
+          width: isOpen
+            ? typeof window !== "undefined" && window.innerWidth < 768
+              ? "min(340px, 85vw)"
+              : "340px"
+            : "88px",
+        }}
       >
         <div className="flex flex-col justify-between min-h-full w-full">
           {/* Main Top + Navigation Section */}
           <div className="flex flex-col w-full flex-1">
             {/* Logo Header */}
             <div
-              className={`mb-6 pt-1 ${
+              className={`mb-5 sm:mb-6 pt-1 ${
                 isOpen ? "px-0.5" : "flex justify-center"
               }`}
             >
               {!isOpen ? (
                 <div
                   onClick={handleLogoClick}
-                  className="w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-orange-50 rounded-xl transition-all duration-200 select-none"
+                  className="w-12 h-12 flex items-center justify-center cursor-pointer hover:bg-orange-50 dark:hover:bg-zinc-800 rounded-xl transition-all duration-200 select-none"
                   role="button"
                   tabIndex={0}
                 >
@@ -448,7 +453,7 @@ const CanvasSidebar = ({
               ) : (
                 <div className="flex flex-col min-w-0 w-full text-left">
                   <div className="flex items-center justify-between w-full h-[40px]">
-                    <div className="flex items-center gap-2.5 h-[40px]">
+                    <div className="flex items-center gap-2.5 h-[40px] min-w-0">
                       <div className="relative shrink-0 flex items-center justify-center w-[40px] h-[40px]">
                         <img
                           src={rivinityLogo}
@@ -461,8 +466,8 @@ const CanvasSidebar = ({
                         />
                       </div>
                       <span
-                        className="font-black text-[#0F172A] dark:text-white tracking-tight leading-none flex items-center"
-                        style={{ fontSize: "36px", height: "40px" }}
+                        className="font-black text-[#0F172A] dark:text-white tracking-tight leading-none flex items-center truncate"
+                        style={{ fontSize: "clamp(26px, 7vw, 36px)", height: "40px" }}
                       >
                         Rivinity
                       </span>
@@ -490,14 +495,13 @@ const CanvasSidebar = ({
             </div>
 
             {/* New Chat Button */}
-            <div className="mb-5 w-full">
+            <div className="mb-4 sm:mb-5 w-full">
               <button
                 onClick={newChat}
                 title={!isOpen ? "New Chat" : undefined}
                 className={`flex items-center justify-center gap-2.5 bg-[#FF5500] hover:bg-[#E64D00] text-white font-semibold rounded-xl shadow-xs transition-all cursor-pointer ${
-                  isOpen ? "w-full h-12 px-4" : "w-12 h-12 mx-auto p-0"
+                  isOpen ? "w-full h-11 sm:h-12 px-4 text-[15px] sm:text-[16px]" : "w-12 h-12 mx-auto p-0"
                 }`}
-                style={{ fontSize: isOpen ? "16px" : undefined }}
               >
                 <Plus className="w-4.5 h-4.5 stroke-[2.2]" />
                 {isOpen && <span>New Chat</span>}
@@ -515,7 +519,7 @@ const CanvasSidebar = ({
             )}
 
             {/* Navigation Groups Container */}
-            <div className="flex flex-col gap-4 flex-1 w-full">
+            <div className="flex flex-col gap-3.5 sm:gap-4 flex-1 w-full">
               {/* Main Menu */}
               <nav className="flex flex-col gap-1 w-full">
                 {menuItems.map(renderNavButton)}
@@ -561,19 +565,19 @@ const CanvasSidebar = ({
           </div>
 
           {/* Bottom Section - Badges */}
-          <div className="flex flex-col gap-3 pt-3.5 mt-auto w-full shrink-0">
+          <div className="flex flex-col gap-2.5 sm:gap-3 pt-3.5 mt-auto w-full shrink-0 pb-1 sm:pb-0">
             {/* Upgrade to Pro */}
             {isOpen ? (
-              <div className="bg-[#FFF5ED] dark:bg-orange-950/20 border border-[#FEE6D8] dark:border-orange-900/30 rounded-xl px-3.5 py-3 flex items-center justify-between cursor-pointer hover:border-[#FDCBAF] transition-all w-full shadow-xs">
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-[#FFE1D0] dark:border-orange-900/40 shadow-xs">
-                    <Zap className="w-6 h-6 text-[#FF5500] fill-[#FF5500]" />
+              <div className="bg-[#FFF5ED] dark:bg-orange-950/20 border border-[#FEE6D8] dark:border-orange-900/30 rounded-xl px-3 sm:px-3.5 py-2.5 sm:py-3 flex items-center justify-between cursor-pointer hover:border-[#FDCBAF] transition-all w-full shadow-xs">
+                <div className="flex items-center gap-3 sm:gap-3.5 min-w-0 flex-1">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 min-w-[44px] sm:min-w-[48px] min-h-[44px] sm:min-h-[48px] rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center shrink-0 border border-[#FFE1D0] dark:border-orange-900/40 shadow-xs">
+                    <Zap className="w-5.5 h-5.5 sm:w-6 sm:h-6 text-[#FF5500] fill-[#FF5500]" />
                   </div>
-                  <div className="flex flex-col min-w-0 text-left">
-                    <span className="text-[15px] font-bold text-[#FF5500] leading-tight">
+                  <div className="flex flex-col min-w-0 text-left flex-1">
+                    <span className="text-[14.5px] sm:text-[15px] font-bold text-[#FF5500] leading-tight truncate">
                       Upgrade to Pro
                     </span>
-                    <span className="text-[12px] text-[#6B7280] dark:text-zinc-400 font-medium leading-tight mt-1">
+                    <span className="text-[11.5px] sm:text-[12px] text-[#6B7280] dark:text-zinc-400 font-medium leading-tight mt-1 truncate">
                       More power & possibilities
                     </span>
                   </div>
@@ -591,16 +595,16 @@ const CanvasSidebar = ({
 
             {/* User Profile */}
             {isOpen ? (
-              <div className="bg-white dark:bg-zinc-900 border border-[#E5E7EB] dark:border-zinc-800 rounded-xl px-3.5 py-3 flex items-center justify-between shadow-xs hover:bg-gray-50/70 dark:hover:bg-zinc-800/70 transition-colors cursor-pointer">
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[#FF5500] text-white flex items-center justify-center text-[15px] font-bold shrink-0 shadow-xs">
+              <div className="bg-white dark:bg-zinc-900 border border-[#E5E7EB] dark:border-zinc-800 rounded-xl px-3 sm:px-3.5 py-2.5 sm:py-3 flex items-center justify-between shadow-xs hover:bg-gray-50/70 dark:hover:bg-zinc-800/70 transition-colors cursor-pointer">
+                <div className="flex items-center gap-3 sm:gap-3.5 min-w-0 flex-1">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 min-w-[44px] sm:min-w-[48px] min-h-[44px] sm:min-h-[48px] rounded-full bg-[#FF5500] text-white flex items-center justify-center text-[14px] sm:text-[15px] font-bold shrink-0 shadow-xs">
                     {USER.initials}
                   </div>
-                  <div className="flex flex-col min-w-0 text-left">
-                    <span className="text-[15.5px] font-bold text-[#111827] dark:text-white truncate leading-tight">
+                  <div className="flex flex-col min-w-0 text-left flex-1">
+                    <span className="text-[15px] sm:text-[15.5px] font-bold text-[#111827] dark:text-white truncate leading-tight">
                       {USER.name}
                     </span>
-                    <span className="text-[12px] text-[#6B7280] dark:text-zinc-400 font-medium truncate leading-tight mt-1">
+                    <span className="text-[11.5px] sm:text-[12px] text-[#6B7280] dark:text-zinc-400 font-medium truncate leading-tight mt-1">
                       {USER.plan || "Pro Workspace"}
                     </span>
                   </div>

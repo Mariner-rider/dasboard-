@@ -9,26 +9,26 @@ import {
   Plus, 
   X, 
   Copy, 
-  Share2,
-  Share,
+  Share2, 
+  Share, 
   ThumbsUp, 
   ThumbsDown, 
   RefreshCw, 
   Pencil, 
   Wand2, 
   Layers, 
-  BarChart3,
-  BookOpen,
-  ArrowUp,
-  Globe,
-  ChevronLeft,
-  ChevronRight,
-  ChevronDown,
-  Bell,
-  Moon,
-  PanelLeft,
-  MoreHorizontal,
-  Brain
+  BarChart3, 
+  BookOpen, 
+  ArrowUp, 
+  Globe, 
+  ChevronLeft, 
+  ChevronRight, 
+  ChevronDown, 
+  Bell, 
+  Moon, 
+  PanelLeft, 
+  MoreHorizontal, 
+  Brain 
 } from "lucide-react";
 import ChatMarkdown from "./ChatMarkdown";
 import { toast } from "sonner";
@@ -205,7 +205,7 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
         {/* UPPER TABS BAR */}
         <div className={cn(
           "flex items-center overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
-          isCompact ? "gap-2 px-3 pt-2.5 pb-1" : "gap-3 sm:gap-4 px-5 sm:px-6 pt-4 pb-1.5"
+          isCompact ? "gap-1.5 px-2.5 pt-2 pb-1" : "gap-2 sm:gap-4 px-3 sm:px-6 pt-3 sm:pt-4 pb-1.5"
         )}>
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -214,7 +214,7 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
                 key={tab.id}
                 className={cn(
                   "group relative flex items-center transition-all duration-150 rounded-xl shrink-0 cursor-pointer",
-                  isCompact ? "gap-1.5 px-2.5 py-1 text-[13px]" : "gap-2 px-3 py-1.5 text-[14.5px]",
+                  isCompact ? "gap-1.5 px-2 py-1 text-[12px]" : "gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[13px] sm:text-[14.5px]",
                   isActive
                     ? "border border-[#FF5500]/40 dark:border-orange-500/40 text-[#FF5500] bg-orange-50/20 dark:bg-orange-950/20 shadow-2xs font-semibold"
                     : "text-gray-700 dark:text-zinc-300 hover:text-gray-900 dark:hover:text-white border border-transparent font-medium"
@@ -224,7 +224,7 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
                 <tab.icon
                   className={cn(
                     "shrink-0 transition-colors",
-                    isCompact ? "w-3.5 h-3.5" : "w-4 h-4",
+                    isCompact ? "w-3.5 h-3.5" : "w-3.5 h-3.5 sm:w-4 sm:h-4",
                     isActive ? "text-[#FF5500]" : "text-gray-500 dark:text-zinc-400"
                   )}
                   strokeWidth={isActive ? 2.2 : 1.9}
@@ -240,14 +240,14 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
                     }}
                     className={cn(
                       "bg-transparent outline-none text-[#1C1C1C] dark:text-zinc-100",
-                      isCompact ? "w-24 text-[12.5px]" : "w-32 text-[14px]"
+                      isCompact ? "w-20 text-[12px]" : "w-24 sm:w-32 text-[13px] sm:text-[14px]"
                     )}
                     onClick={(e) => e.stopPropagation()}
                   />
                 ) : (
                   <>
                     <span
-                      className="whitespace-nowrap"
+                      className="whitespace-nowrap truncate max-w-[100px] sm:max-w-none"
                       onDoubleClick={(e) => {
                         e.stopPropagation();
                         setEditingTabId(tab.id);
@@ -256,9 +256,9 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
                     >
                       {tab.label}
                     </span>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1 sm:gap-1.5">
                       <Pencil
-                        className="w-3.5 h-3.5 text-gray-400 hover:text-gray-700 dark:hover:text-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shrink-0"
+                        className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gray-400 hover:text-gray-700 dark:hover:text-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shrink-0"
                         strokeWidth={2}
                         onClick={(e) => {
                           e.stopPropagation();
@@ -268,7 +268,7 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
                       />
                       {tabs.length > 1 && (
                         <X
-                          className="w-3.5 h-3.5 text-gray-400 hover:text-gray-700 dark:hover:text-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shrink-0"
+                          className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gray-400 hover:text-gray-700 dark:hover:text-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shrink-0"
                           strokeWidth={2}
                           onClick={(e) => onCloseTab(tab.id, e)}
                         />
@@ -287,9 +287,9 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
             isAddingTab ? "max-h-[350px] opacity-100 border-t border-gray-100 dark:border-zinc-800" : "max-h-0 opacity-0"
           }`}
         >
-          <div className={cn("bg-gray-50/50 dark:bg-zinc-900/50", isCompact ? "p-3" : "p-4 sm:p-4.5")}>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-2.5">
-              <p className="text-[12px] font-bold uppercase tracking-wider px-1 text-gray-400 dark:text-zinc-500">
+          <div className={cn("bg-gray-50/50 dark:bg-zinc-900/50", isCompact ? "p-2.5" : "p-3.5 sm:p-4.5")}>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+              <p className="text-[11px] sm:text-[12px] font-bold uppercase tracking-wider px-1 text-gray-400 dark:text-zinc-500">
                 Research Tools
               </p>
               <input
@@ -310,252 +310,252 @@ const ChatComposer: React.FC<ChatComposerProps> = ({
                     setIsAddingTab(false);
                     setNewTabName("");
                   }
-              }}
-              className={cn(
-                "bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg outline-none transition-all focus:border-[#FF5500] text-[#1C1C1C] dark:text-zinc-100",
-                isCompact ? "w-full px-2.5 py-1 text-[12.5px]" : "w-full sm:w-44 px-3.5 py-1.5 text-[13.5px]"
-              )}
-              placeholder="Custom name..."
-            />
-          </div>
-          <div className="flex flex-col gap-1 max-h-[180px] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            {tabTemplates.map((template) => (
-              <button
-                key={template.label}
-                type="button"
-                onClick={() => {
-                  const newTab: TabState = {
-                    id: Date.now(),
-                    icon: template.icon,
-                    label: template.label,
-                    kind: template.kind,
-                    messages: [],
-                    draftInput: "",
-                  };
-                  setTabs((p) => [...p, newTab]);
-                  setActiveTab(newTab.id);
-                  setIsAddingTab(false);
                 }}
                 className={cn(
-                  "flex items-center w-full rounded-lg border border-transparent hover:border-[#FF5500]/30 hover:bg-white dark:hover:bg-zinc-800 transition-all group text-left cursor-pointer",
-                  isCompact ? "gap-2 h-8 px-2" : "gap-3 h-10 px-3"
+                  "bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg outline-none transition-all focus:border-[#FF5500] text-[#1C1C1C] dark:text-zinc-100",
+                  isCompact ? "w-full px-2.5 py-1 text-[12px]" : "w-full sm:w-44 px-3 py-1.5 text-[13px] sm:text-[13.5px]"
                 )}
+                placeholder="Custom name..."
+              />
+            </div>
+            <div className="flex flex-col gap-1 max-h-[180px] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              {tabTemplates.map((template) => (
+                <button
+                  key={template.label}
+                  type="button"
+                  onClick={() => {
+                    const newTab: TabState = {
+                      id: Date.now(),
+                      icon: template.icon,
+                      label: template.label,
+                      kind: template.kind,
+                      messages: [],
+                      draftInput: "",
+                    };
+                    setTabs((p) => [...p, newTab]);
+                    setActiveTab(newTab.id);
+                    setIsAddingTab(false);
+                  }}
+                  className={cn(
+                    "flex items-center w-full rounded-lg border border-transparent hover:border-[#FF5500]/30 hover:bg-white dark:hover:bg-zinc-800 transition-all group text-left cursor-pointer",
+                    isCompact ? "gap-2 h-8 px-2" : "gap-2.5 sm:gap-3 h-9 sm:h-10 px-2.5 sm:px-3"
+                  )}
+                >
+                  <template.icon className={cn("text-gray-500 dark:text-zinc-400 group-hover:text-[#FF5500] shrink-0", isCompact ? "w-3.5 h-3.5" : "w-4 h-4 sm:w-4.5 sm:h-4.5")} strokeWidth={2} />
+                  <p className={cn("font-medium text-[#1C1C1C] dark:text-zinc-200 group-hover:text-[#FF5500] transition-colors truncate", isCompact ? "text-[12.5px]" : "text-[13.5px] sm:text-[14px]")}>
+                    {template.label}
+                  </p>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* PROMPT TEXTAREA */}
+        <textarea
+          ref={textareaRef}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Ask anything..."
+          rows={1}
+          className={cn(
+            "w-full bg-transparent text-[#1C1C1C] dark:text-zinc-100 placeholder:text-gray-400 dark:placeholder:text-zinc-500 focus:outline-none resize-none leading-relaxed [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+            isCompact ? "px-3.5 pt-3 pb-1 text-[14px]" : "px-3.5 sm:px-6 pt-3 sm:pt-4 pb-1.5 text-[15.5px] sm:text-[17px]"
+          )}
+          style={{ minHeight: isCompact ? "44px" : "54px" }}
+        />
+
+        {/* BOTTOM ACTION CONTROLS */}
+        <div className={cn(
+          "flex items-center justify-between w-full",
+          isCompact ? "px-3 pb-2.5 pt-1" : "px-3 sm:px-6 pb-2.5 sm:pb-4 pt-1 sm:pt-2"
+        )}>
+          <div className={cn("flex items-center min-w-0", isCompact ? "gap-1" : "gap-1 sm:gap-2")}>
+            <button
+              type="button"
+              onClick={() => setIsAddingTab((v) => !v)}
+              className={cn(
+                "transition-colors cursor-pointer shrink-0",
+                isCompact ? "p-1.5 rounded-lg" : "p-1.5 sm:p-2.5 rounded-xl",
+                isAddingTab
+                  ? "bg-orange-50 text-[#FF5500] dark:bg-orange-950/40"
+                  : "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800"
+              )}
+              title="Add tool"
+            >
+              <Plus className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-4.5 h-4.5 sm:w-5 sm:h-5")} strokeWidth={2.2} />
+            </button>
+
+            {!isCompact && (
+              <button
+                type="button"
+                className="hidden sm:flex p-2.5 rounded-xl text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
+                title="Search web"
               >
-                <template.icon className={cn("text-gray-500 dark:text-zinc-400 group-hover:text-[#FF5500] shrink-0", isCompact ? "w-3.5 h-3.5" : "w-4.5 h-4.5")} strokeWidth={2} />
-                <p className={cn("font-medium text-[#1C1C1C] dark:text-zinc-200 group-hover:text-[#FF5500] transition-colors truncate", isCompact ? "text-[13px]" : "text-[14px]")}>
-                  {template.label}
-                </p>
+                <Globe className="w-5 h-5" strokeWidth={2} />
               </button>
-            ))}
+            )}
+
+            <button
+              ref={wandButtonRef}
+              type="button"
+              onClick={() => {
+                if (!input.trim()) {
+                  toast.info("Type a prompt first to enhance");
+                  return;
+                }
+                setInput(
+                  `${input.trim()} — provide detailed academic reasoning, key citations, and structured findings.`
+                );
+                toast.success("Prompt enhanced!");
+              }}
+              className={cn(
+                "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0",
+                isCompact ? "p-1.5 rounded-lg" : "p-1.5 sm:p-2.5 rounded-xl"
+              )}
+              title="Enhance prompt"
+            >
+              <Wand2 className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-4.5 h-4.5 sm:w-5 sm:h-5")} strokeWidth={2.2} />
+            </button>
+
+            <button
+              ref={skillButtonRef}
+              type="button"
+              onClick={() => setSkillPickerOpen((v) => !v)}
+              className={cn(
+                "transition-colors cursor-pointer shrink-0",
+                isCompact ? "p-1.5 rounded-lg" : "p-1.5 sm:p-2.5 rounded-xl",
+                skillPickerOpen
+                  ? "bg-orange-50 text-[#FF5500] dark:bg-orange-950/40"
+                  : "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800"
+              )}
+              title="Skills"
+            >
+              <Layers
+                className={cn(
+                  "shrink-0 transition-colors",
+                  isCompact ? "w-4 h-4" : "w-4.5 h-4.5 sm:w-5 sm:h-5",
+                  skillPickerOpen ? "text-[#FF5500]" : "text-gray-500 dark:text-zinc-400"
+                )}
+                strokeWidth={2}
+              />
+            </button>
+
+            {!isCompact && (
+              <button
+                type="button"
+                className="hidden sm:flex p-2.5 rounded-xl text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
+                title="Code interpreter"
+              >
+                <Code className="w-5 h-5" strokeWidth={2} />
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className={cn(
+                "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0",
+                isCompact ? "p-1.5 rounded-lg" : "p-1.5 sm:p-2.5 rounded-xl"
+              )}
+              title="Attach context file"
+            >
+              <Paperclip className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-4.5 h-4.5 sm:w-5 sm:h-5")} strokeWidth={2} />
+            </button>
+            <input 
+              type="file" 
+              ref={fileInputRef} 
+              className="hidden" 
+              onChange={(e) => {
+                const files = e.target.files;
+                if (files && files.length > 0) {
+                  toast.success(`Attached: ${files[0].name}`);
+                }
+              }}
+            />
+          </div>
+
+          <div className={cn("flex items-center shrink-0", isCompact ? "gap-1.5" : "gap-2.5 sm:gap-3")}>
+            <button 
+              type="button" 
+              className={cn(
+                "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0",
+                isCompact ? "p-1.5 rounded-lg" : "p-2.5 rounded-xl"
+              )}
+              title="Voice input"
+            >
+              <Mic className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-5 h-5")} strokeWidth={2} />
+            </button>
+
+            <button 
+              type="button" 
+              onClick={onSend}
+              disabled={!input.trim() || disabled}
+              className={cn(
+                "rounded-full flex items-center justify-center transition-all cursor-pointer shadow-xs text-white shrink-0",
+                isCompact ? "w-8 h-8 min-w-[32px] min-h-[32px]" : "w-10 h-10 min-w-[40px] min-h-[40px]",
+                input.trim()
+                  ? "bg-[#FF5500] hover:bg-[#E64D00] shadow-[0_2px_10px_rgba(255,85,0,0.30)] active:scale-95"
+                  : "bg-[#FFA285] dark:bg-orange-800/40 hover:bg-[#FF8555] disabled:opacity-40"
+              )}
+              title="Send prompt"
+            >
+              <ArrowUp className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-5 h-5")} strokeWidth={2.6} />
+            </button>
           </div>
         </div>
       </div>
 
-      {/* PROMPT TEXTAREA */}
-      <textarea
-        ref={textareaRef}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Ask anything..."
-        rows={1}
-        className={cn(
-          "w-full bg-transparent text-[#1C1C1C] dark:text-zinc-100 placeholder:text-gray-400 dark:placeholder:text-zinc-500 focus:outline-none resize-none leading-relaxed [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
-          isCompact ? "px-3.5 pt-3 pb-1 text-[14px]" : "px-5 sm:px-6 pt-4 pb-1.5 text-[17px]"
-        )}
-        style={{ minHeight: isCompact ? "44px" : "58px" }}
-      />
-
-      {/* BOTTOM ACTION CONTROLS */}
-      <div className={cn(
-        "flex items-center justify-between w-full",
-        isCompact ? "px-3 pb-2.5 pt-1" : "px-5 sm:px-6 pb-4 pt-2"
-      )}>
-        <div className={cn("flex items-center min-w-0", isCompact ? "gap-1" : "gap-2 sm:gap-2.5")}>
-          <button
-            type="button"
-            onClick={() => setIsAddingTab((v) => !v)}
-            className={cn(
-              "transition-colors cursor-pointer shrink-0",
-              isCompact ? "p-1.5 rounded-lg" : "p-2.5 rounded-xl",
-              isAddingTab
-                ? "bg-orange-50 text-[#FF5500] dark:bg-orange-950/40"
-                : "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800"
-            )}
-            title="Add tool"
-          >
-            <Plus className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-5 h-5")} strokeWidth={2.2} />
-          </button>
-
-          {!isCompact && (
-            <button
-              type="button"
-              className="p-2.5 rounded-xl text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
-              title="Search web"
-            >
-              <Globe className="w-5 h-5" strokeWidth={2} />
-            </button>
-          )}
-
-          <button
-            ref={wandButtonRef}
-            type="button"
-            onClick={() => {
-              if (!input.trim()) {
-                toast.info("Type a prompt first to enhance");
-                return;
-              }
-              setInput(
-                `${input.trim()} — provide detailed academic reasoning, key citations, and structured findings.`
-              );
-              toast.success("Prompt enhanced!");
-            }}
-            className={cn(
-              "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0",
-              isCompact ? "p-1.5 rounded-lg" : "p-2.5 rounded-xl"
-          )}
-            title="Enhance prompt"
-          >
-            <Wand2 className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-5 h-5")} strokeWidth={2} />
-          </button>
-
-          <button
-            ref={skillButtonRef}
-            type="button"
-            onClick={() => setSkillPickerOpen((v) => !v)}
-            className={cn(
-              "transition-colors cursor-pointer shrink-0",
-              isCompact ? "p-1.5 rounded-lg" : "p-2.5 rounded-xl",
-              skillPickerOpen
-                ? "bg-orange-50 text-[#FF5500] dark:bg-orange-950/40"
-                : "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800"
-            )}
-            title="Skills"
-          >
-            <Layers
-              className={cn(
-                  "shrink-0 transition-colors",
-                  isCompact ? "w-4 h-4" : "w-5 h-5",
-                  skillPickerOpen ? "text-[#FF5500]" : "text-gray-500 dark:text-zinc-400"
-              )}
-              strokeWidth={2}
-            />
-          </button>
-
-          {!isCompact && (
-            <button
-              type="button"
-              className="p-2.5 rounded-xl text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
-              title="Code interpreter"
-            >
-              <Code className="w-5 h-5" strokeWidth={2} />
-            </button>
-          )}
-
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            className={cn(
-              "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0",
-              isCompact ? "p-1.5 rounded-lg" : "p-2.5 rounded-xl"
-          )}
-            title="Attach context file"
-          >
-            <Paperclip className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-5 h-5")} strokeWidth={2} />
-          </button>
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            className="hidden" 
-            onChange={(e) => {
-              const files = e.target.files;
-              if (files && files.length > 0) {
-                toast.success(`Attached: ${files[0].name}`);
-              }
-            }}
-          />
-        </div>
-
-        <div className={cn("flex items-center shrink-0", isCompact ? "gap-1.5" : "gap-2.5 sm:gap-3")}>
-          <button 
-            type="button" 
-            className={cn(
-              "text-gray-500 dark:text-zinc-400 hover:text-gray-800 dark:hover:text-zinc-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer shrink-0",
-              isCompact ? "p-1.5 rounded-lg" : "p-2.5 rounded-xl"
-            )}
-            title="Voice input"
-        >
-            <Mic className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-5 h-5")} strokeWidth={2} />
-        </button>
-
-        <button 
-          type="button" 
-          onClick={onSend}
-          disabled={!input.trim() || disabled}
-          className={cn(
-            "rounded-full flex items-center justify-center transition-all cursor-pointer shadow-xs text-white shrink-0",
-            isCompact ? "w-8 h-8 min-w-[32px] min-h-[32px]" : "w-10 h-10 min-w-[40px] min-h-[40px]",
-            input.trim()
-              ? "bg-[#FF5500] hover:bg-[#E64D00] shadow-[0_2px_10px_rgba(255,85,0,0.30)] active:scale-95"
-              : "bg-[#FFA285] dark:bg-orange-800/40 hover:bg-[#FF8555] disabled:opacity-40"
-        )}
-        title="Send prompt"
-      >
-        <ArrowUp className={cn("shrink-0", isCompact ? "w-4 h-4" : "w-5 h-5")} strokeWidth={2.6} />
-      </button>
-      </div>
-    </div>
-  </div>
-
-  {/* SKILL PICKER POPOVER */}
-  {skillPickerOpen && (
-    <div ref={popoverRef} className="absolute left-0 right-0 top-full mt-2.5 z-50">
-      <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-xl overflow-hidden">
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-zinc-800">
-          <Layers className="w-5 h-5 text-[#FF5500] shrink-0" strokeWidth={2.2} />
-          <input
-            autoFocus
-            value={skillQuery}
-            onChange={(e) => setSkillQuery(e.target.value)}
-            placeholder="Search skills to run…"
-            className="bg-transparent outline-none text-[14.5px] flex-1 text-[#1C1C1C] dark:text-zinc-100 placeholder:text-gray-400 dark:placeholder:text-zinc-500"
-          />
-          <span className="text-[12.5px] text-gray-400 shrink-0">
-            {filteredSkills.length} available
-          </span>
-        </div>
-        <div className="max-h-[310px] overflow-y-auto py-1.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          {filteredSkills.length === 0 ? (
-            <div className="py-6 text-center text-[13.5px] text-gray-400 dark:text-zinc-500">
-              No skills found matching &ldquo;{skillQuery}&rdquo;
+      {/* SKILL PICKER POPOVER */}
+      {skillPickerOpen && (
+        <div ref={popoverRef} className="absolute left-0 right-0 top-full mt-2.5 z-50">
+          <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-xl overflow-hidden">
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-zinc-800">
+              <Layers className="w-5 h-5 text-[#FF5500] shrink-0" strokeWidth={2.2} />
+              <input
+                autoFocus
+                value={skillQuery}
+                onChange={(e) => setSkillQuery(e.target.value)}
+                placeholder="Search skills to run…"
+                className="bg-transparent outline-none text-[14.5px] flex-1 text-[#1C1C1C] dark:text-zinc-100 placeholder:text-gray-400 dark:placeholder:text-zinc-500"
+              />
+              <span className="text-[12.5px] text-gray-400 shrink-0">
+                {filteredSkills.length} available
+              </span>
             </div>
-          ) : (
-            filteredSkills.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => onRunSkill(s.id)}
-                className="w-full text-left px-5 py-3 hover:bg-orange-50/40 dark:hover:bg-orange-950/20 transition-colors flex items-center justify-between gap-4 group cursor-pointer border-b border-gray-50/80 dark:border-zinc-800/40 last:border-0"
-              >
-                <div className="min-w-0 flex-1">
-                  <p className="text-[14.5px] font-semibold text-[#1C1C1C] dark:text-zinc-100 group-hover:text-[#FF5500] transition-colors truncate">
-                    {s.name}
-                  </p>
-                  <p className="text-[13px] text-gray-500 dark:text-zinc-400 font-normal leading-relaxed mt-0.5 truncate">
-                    {s.summary}
-                  </p>
+            <div className="max-h-[310px] overflow-y-auto py-1.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              {filteredSkills.length === 0 ? (
+                <div className="py-6 text-center text-[13.5px] text-gray-400 dark:text-zinc-500">
+                  No skills found matching &ldquo;{skillQuery}&rdquo;
                 </div>
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-[#FF5500] bg-orange-50/50 dark:bg-orange-950/30 border border-[#FF5500]/30 px-2.5 py-0.5 rounded-full shrink-0">
-                  {s.category}
-                </span>
-              </button>
-            ))
-          )}
+              ) : (
+                filteredSkills.map((s) => (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => onRunSkill(s.id)}
+                    className="w-full text-left px-5 py-3 hover:bg-orange-50/40 dark:hover:bg-orange-950/20 transition-colors flex items-center justify-between gap-4 group cursor-pointer border-b border-gray-50/80 dark:border-zinc-800/40 last:border-0"
+                  >
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[14.5px] font-semibold text-[#1C1C1C] dark:text-zinc-100 group-hover:text-[#FF5500] transition-colors truncate">
+                        {s.name}
+                      </p>
+                      <p className="text-[13px] text-gray-500 dark:text-zinc-400 font-normal leading-relaxed mt-0.5 truncate">
+                        {s.summary}
+                      </p>
+                    </div>
+                    <span className="text-[11px] uppercase tracking-wider font-semibold text-[#FF5500] bg-orange-50/50 dark:bg-orange-950/30 border border-[#FF5500]/30 px-2.5 py-0.5 rounded-full shrink-0">
+                      {s.category}
+                    </span>
+                  </button>
+                ))
+              )}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
-  )}
- </div>
   );
 };
 
@@ -577,7 +577,8 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
   const [skillPickerOpen, setSkillPickerOpen] = useState(false);
   const [skillQuery, setSkillQuery] = useState("");
   const [headerSearch, setHeaderSearch] = useState("");
-  const [, setIsDashboardDismissed] = useState(false);
+  const [isDashboardDismissed, setIsDashboardDismissed] = useState(false);
+  const [mobileTab, setMobileTab] = useState<"chat" | "dashboard">("dashboard");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -591,8 +592,8 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
     );
   }, [activeTabId]);
 
-  // Split layout: 20% AI Chat / 80% Big Data Dashboard
-  const [splitPercent, setSplitPercent] = useState<number>(20);
+  // Split layout: 50% AI Chat / 50% Big Data Dashboard
+  const [splitPercent, setSplitPercent] = useState<number>(50);
   const [isDragging, setIsDragging] = useState(false);
   const splitContainerRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
@@ -699,11 +700,11 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
   }, []);
 
   const handleResetSplit = useCallback(() => {
-    setSplitPercent(20);
+    setSplitPercent(50);
     window.dispatchEvent(
-      new CustomEvent("split-ratio-change", { detail: { ratio: 20 } })
+      new CustomEvent("split-ratio-change", { detail: { ratio: 50 } })
     );
-    toast("Reset layout to 20/80");
+    toast("Reset layout to 50/50");
   }, []);
 
   const isEmpty = messages.length === 0;
@@ -712,7 +713,7 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
   const hasBigDataInPrompt = messages.some(
     (m) => m.role === "user" && /big\s*data/i.test(m.content)
   );
-  const isDashboardActive = hasBigDataInPrompt;
+  const isDashboardActive = hasBigDataInPrompt && !isDashboardDismissed;
 
   useEffect(() => {
     onChatStateChange?.(!isEmpty);
@@ -764,10 +765,11 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
 
     if (hasBigDataKeyword) {
       setIsDashboardDismissed(false);
-      // Allocate 20% to AI Chat and 80% to Big Data
-      setSplitPercent(20);
+      // Allocate 50% to AI Chat and 50% to Big Data
+      setSplitPercent(50);
+      setMobileTab("dashboard");
       window.dispatchEvent(
-        new CustomEvent("split-ratio-change", { detail: { ratio: 20 } })
+        new CustomEvent("split-ratio-change", { detail: { ratio: 50 } })
       );
     }
 
@@ -819,103 +821,108 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
 
   const isWriteMode = currentTab.kind === "write";
 
-  const isCompact = splitPercent < 45;
+  // Responsive compactness: also active on mobile when split to ensure tight spacing
+  const isCompact = splitPercent < 45 || (!isDesktop && isDashboardActive);
   const isUltraCompact = splitPercent < 32;
 
   const exactSplitChatHeader = (
     <header className={cn(
-      "relative flex h-[72px] shrink-0 items-center justify-between bg-transparent z-20 select-none w-full transition-all duration-150",
-      isUltraCompact ? "px-2.5" : isCompact ? "px-3.5" : "px-5 sm:px-6"
+      "relative flex h-14 sm:h-[72px] shrink-0 items-center justify-between bg-transparent z-20 select-none w-full transition-all duration-150",
+      isUltraCompact ? "px-2" : isCompact ? "px-2.5 sm:px-3.5" : "px-3.5 sm:px-6"
     )}>
-      <div className={cn("flex items-center min-w-0", isUltraCompact ? "gap-1.5" : "gap-2 sm:gap-3")}>
+      <div className={cn("flex items-center min-w-0", isUltraCompact ? "gap-1" : "gap-1.5 sm:gap-3")}>
         <button
           type="button"
           onClick={onToggleSidebar}
           className={cn(
             "shrink-0 cursor-pointer items-center justify-center rounded-xl border border-black/5 bg-white shadow-xs dark:border-white/10 dark:bg-zinc-900 md:hidden flex",
-            isUltraCompact ? "h-8 w-8" : isCompact ? "h-9 w-9" : "h-11 w-11"
+            isUltraCompact ? "h-8 w-8" : isCompact ? "h-8.5 w-8.5 sm:h-9 sm:w-9" : "h-9 w-9 sm:h-11 sm:w-11"
           )}
           aria-label="Toggle sidebar"
         >
-          <PanelLeft className={cn("text-[#1C1C1C] dark:text-zinc-200", isCompact ? "h-4 w-4" : "h-5.5 w-5.5")} strokeWidth={2} />
+          <PanelLeft className={cn("text-[#1C1C1C] dark:text-zinc-200", isCompact ? "h-4 w-4" : "h-4.5 w-4.5 sm:h-5.5 sm:w-5.5")} strokeWidth={2} />
         </button>
 
         <div className="flex items-center min-w-0">
           <div className={cn(
             "group relative flex items-center overflow-hidden rounded-full transition-all duration-300 ease-out",
-            isUltraCompact ? "w-8 hover:w-[160px] focus-within:w-[160px]" : isCompact ? "w-9 hover:w-[200px] focus-within:w-[200px]" : "w-11 hover:w-[260px] focus-within:w-[260px] sm:hover:w-[320px] sm:focus-within:w-[320px]"
+            isUltraCompact 
+              ? "w-8 hover:w-[150px] focus-within:w-[150px]" 
+              : isCompact 
+                ? "w-8.5 hover:w-[170px] focus-within:w-[170px] sm:w-9 sm:hover:w-[200px] sm:focus-within:w-[200px]" 
+                : "w-9 sm:w-11 hover:w-[200px] sm:hover:w-[260px] focus-within:w-[200px] sm:focus-within:w-[260px]"
           )}>
             <Search className={cn(
               "pointer-events-none absolute z-10 text-[#1C1C1C] dark:text-zinc-200 shrink-0",
-              isUltraCompact ? "left-2 h-4 w-4" : isCompact ? "left-2.5 h-4.5 w-4.5" : "left-3.5 h-5 w-5"
+              isUltraCompact ? "left-2 h-3.5 w-3.5" : isCompact ? "left-2 h-4 w-4" : "left-2.5 sm:left-3.5 h-4 w-4 sm:h-5 sm:w-5"
             )} strokeWidth={2} />
             <input
               type="text"
               value={headerSearch}
               onChange={(e) => setHeaderSearch(e.target.value)}
-              placeholder={isUltraCompact ? "Search..." : "Search chats, tools, agents..."}
+              placeholder={isUltraCompact ? "Search..." : "Search chats, tools..."}
               className={cn(
                 "w-full cursor-pointer rounded-full border border-transparent bg-transparent outline-none placeholder:text-gray-400 hover:border-gray-200/80 hover:bg-white/70 focus:cursor-text focus:border-gray-200 focus:bg-white focus:shadow-xs dark:text-white dark:placeholder:text-zinc-500 dark:hover:border-zinc-800 dark:hover:bg-zinc-900/70 dark:focus:border-zinc-700 dark:focus:bg-zinc-900 transition-all duration-200",
-                isUltraCompact ? "h-8 pl-8 pr-6 text-xs" : isCompact ? "h-9 pl-9 pr-7 text-[13.5px]" : "h-11 pl-11 pr-10 text-[15px]"
+                isUltraCompact ? "h-8 pl-7 pr-5 text-xs" : isCompact ? "h-8.5 pl-8 pr-6 text-xs" : "h-9 sm:h-11 pl-8 sm:pl-11 pr-7 sm:pr-10 text-[13.5px] sm:text-[15px]"
               )}
             />
             {headerSearch && (
               <button
                 type="button"
                 onClick={() => setHeaderSearch("")}
-                className="absolute right-2.5 z-10 flex h-4 w-4 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+                className="absolute right-2 z-10 flex h-4 w-4 cursor-pointer items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10"
                 aria-label="Clear search"
               >
-                <X className="h-3.5 w-3.5 text-[#1C1C1C] dark:text-zinc-200" strokeWidth={2} />
+                <X className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#1C1C1C] dark:text-zinc-200" strokeWidth={2} />
               </button>
             )}
           </div>
         </div>
       </div>
 
-      <div className={cn("flex items-center shrink-0", isUltraCompact ? "gap-1.5" : isCompact ? "gap-2" : "gap-3")}>
+      <div className={cn("flex items-center shrink-0", isUltraCompact ? "gap-1" : isCompact ? "gap-1 sm:gap-1.5" : "gap-1.5 sm:gap-3")}>
         <button
           type="button"
           className={cn(
             "relative shrink-0 cursor-pointer items-center justify-center rounded-full border border-gray-200/70 bg-white shadow-xs transition-all hover:bg-gray-50 dark:border-white/10 dark:bg-zinc-900 dark:hover:bg-zinc-800 flex",
-            isUltraCompact ? "h-8 w-8" : isCompact ? "h-9 w-9" : "h-11 w-11"
+            isUltraCompact ? "h-7.5 w-7.5" : isCompact ? "h-8 w-8 sm:h-9 sm:w-9" : "h-8.5 w-8.5 sm:h-11 sm:w-11"
           )}
           aria-label="Notifications"
         >
-          <Bell className={cn("text-[#1C1C1C] dark:text-zinc-200", isCompact ? "h-4 w-4" : "h-5 w-5")} strokeWidth={1.9} />
-          <span className={cn("absolute rounded-full bg-[#FF5500]", isCompact ? "right-1.5 top-1.5 h-2 w-2" : "right-2.5 top-2.5 h-2.5 w-2.5")} />
+          <Bell className={cn("text-[#1C1C1C] dark:text-zinc-200", isCompact ? "h-3.5 w-3.5" : "h-4 w-4 sm:h-5 sm:w-5")} strokeWidth={1.9} />
+          <span className={cn("absolute rounded-full bg-[#FF5500]", isCompact ? "right-1 top-1 h-1.5 w-1.5" : "right-1.5 sm:right-2.5 top-1.5 sm:top-2.5 h-2 sm:h-2.5 w-2 sm:w-2.5")} />
         </button>
 
         <button
           type="button"
           className={cn(
             "shrink-0 cursor-pointer items-center justify-center rounded-full border border-gray-200/70 bg-white shadow-xs transition-all hover:bg-gray-50 dark:border-white/10 dark:bg-zinc-900 dark:hover:bg-zinc-800 flex",
-            isUltraCompact ? "h-8 w-8" : isCompact ? "h-9 w-9" : "h-11 w-11"
+            isUltraCompact ? "h-7.5 w-7.5" : isCompact ? "h-8 w-8 sm:h-9 sm:w-9" : "h-8.5 w-8.5 sm:h-11 sm:w-11"
           )}
           aria-label="Toggle theme"
         >
-          <Moon className={cn("text-[#1C1C1C] dark:text-zinc-200", isCompact ? "h-4 w-4" : "h-5 w-5")} strokeWidth={1.9} />
+          <Moon className={cn("text-[#1C1C1C] dark:text-zinc-200", isCompact ? "h-3.5 w-3.5" : "h-4 w-4 sm:h-5 sm:w-5")} strokeWidth={1.9} />
         </button>
 
         {isEmpty ? (
           <div className={cn(
             "shrink-0 cursor-pointer items-center rounded-full border border-gray-200/80 bg-white shadow-xs transition-colors hover:bg-gray-50/80 dark:border-white/10 dark:bg-zinc-900 dark:hover:bg-zinc-800 flex",
-            isUltraCompact ? "h-8 px-1" : isCompact ? "h-9 pl-1 pr-2 gap-1.5" : "h-[46px] pl-1.5 pr-4 gap-3"
+            isUltraCompact ? "h-7 px-1" : isCompact ? "h-8 pl-1 pr-1.5 sm:pr-2 gap-1" : "h-8.5 sm:h-[46px] pl-1 sm:pl-1.5 pr-2.5 sm:pr-4 gap-1.5 sm:gap-3"
           )}>
             <div className={cn(
               "shrink-0 items-center justify-center rounded-full bg-[#FF5500] font-bold text-white shadow-xs flex",
-              isUltraCompact ? "h-6 w-6 text-[10px]" : isCompact ? "h-7 w-7 text-[11px]" : "h-9 w-9 text-[13px]"
+              isUltraCompact ? "h-5 w-5 text-[9px]" : isCompact ? "h-6 w-6 text-[10px]" : "h-6.5 w-6.5 sm:h-9 sm:w-9 text-[11px] sm:text-[13px]"
             )}>
               {USER.initials}
             </div>
 
             {!isUltraCompact && (
               <div className="hidden text-left leading-none md:block">
-                <p className={cn("font-semibold text-[#1C1C1C] dark:text-white truncate", isCompact ? "text-[12.5px] max-w-[70px]" : "text-[14.5px] max-w-[100px] xl:max-w-none")}>
+                <p className={cn("font-semibold text-[#1C1C1C] dark:text-white truncate", isCompact ? "text-[12px] max-w-[65px]" : "text-[14px] sm:text-[14.5px] max-w-[100px] xl:max-w-none")}>
                   {USER.name}
                 </p>
                 {!isCompact && (
-                  <p className="text-[12px] font-normal text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-[11px] sm:text-[12px] font-normal text-gray-500 dark:text-gray-400 mt-0.5 sm:mt-1">
                     {USER.plan || "Pro Workspace"}
                   </p>
                 )}
@@ -923,22 +930,22 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
             )}
 
             {!isCompact && (
-              <ChevronDown className="hidden h-4.5 w-4.5 shrink-0 text-gray-500 dark:text-zinc-400 md:block ml-0.5" strokeWidth={2} />
+              <ChevronDown className="hidden h-4 w-4 sm:h-4.5 sm:w-4.5 shrink-0 text-gray-500 dark:text-zinc-400 md:block ml-0.5" strokeWidth={2} />
             )}
           </div>
         ) : (
-          <div className={cn("flex items-center transition-all duration-200", isUltraCompact ? "gap-1" : "gap-1.5")}>
+          <div className={cn("flex items-center transition-all duration-200", isUltraCompact ? "gap-0.5" : "gap-1 sm:gap-1.5")}>
             <button
               type="button"
               onClick={handleShare}
               className={cn(
                 "rounded-full text-[#1C1C1C] hover:bg-black/5 dark:text-zinc-100 dark:hover:bg-white/10 font-semibold transition-colors cursor-pointer flex items-center justify-center",
-                isUltraCompact ? "h-8 w-8 p-0" : isCompact ? "px-2.5 py-1.5 text-xs gap-1" : "px-3.5 py-2 text-[14px] gap-2"
+                isUltraCompact ? "h-7 w-7 p-0" : isCompact ? "px-2 py-1 text-xs gap-1" : "px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-[14px] gap-1.5 sm:gap-2"
               )}
               title="Share"
             >
-              <Share className={cn(isUltraCompact ? "h-4 w-4" : isCompact ? "h-3.5 w-3.5" : "h-4.5 w-4.5")} strokeWidth={2} />
-              {!isUltraCompact && <span>Share</span>}
+              <Share className={cn(isUltraCompact ? "h-3.5 w-3.5" : isCompact ? "h-3.5 w-3.5" : "h-4 w-4 sm:h-4.5 sm:w-4.5")} strokeWidth={2} />
+              {!isUltraCompact && <span className="hidden sm:inline">Share</span>}
             </button>
 
             <button
@@ -946,11 +953,11 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
               onClick={() => toast("More options")}
               className={cn(
                 "items-center justify-center rounded-full text-gray-700 hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10 transition-colors cursor-pointer flex",
-                isUltraCompact ? "h-8 w-8" : isCompact ? "h-8 w-8" : "h-9 w-9"
+                isUltraCompact ? "h-7 w-7" : isCompact ? "h-8 w-8" : "h-8.5 w-8.5 sm:h-9 sm:w-9"
               )}
               aria-label="More options"
             >
-              <MoreHorizontal className={cn(isCompact ? "h-4 w-4" : "h-5 w-5")} strokeWidth={2} />
+              <MoreHorizontal className={cn(isCompact ? "h-3.5 w-3.5" : "h-4 w-4 sm:h-5 sm:w-5")} strokeWidth={2} />
             </button>
           </div>
         )}
@@ -968,7 +975,7 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
               type="button"
               onClick={() => setActiveTabId(tab.id)}
               className={cn(
-                "group relative flex items-center gap-2.5 px-4.5 py-3 text-[15px] font-medium border-r border-gray-100 dark:border-zinc-800 shrink-0 transition-colors cursor-pointer",
+                "group relative flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4.5 py-2.5 sm:py-3 text-[14px] sm:text-[15px] font-medium border-r border-gray-100 dark:border-zinc-800 shrink-0 transition-colors cursor-pointer",
                 activeTabId === tab.id
                   ? "bg-white dark:bg-zinc-800 text-[#FF5500]"
                   : "bg-gray-50/50 dark:bg-zinc-900/50 text-[#1C1C1C] dark:text-zinc-300 hover:text-black dark:hover:text-white"
@@ -976,7 +983,7 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
             >
               <tab.icon
                 className={cn(
-                  "w-[18px] h-[18px] shrink-0 transition-colors",
+                  "w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 transition-colors",
                   activeTabId === tab.id ? "text-[#FF5500]" : "text-[#1C1C1C] dark:text-zinc-400"
                 )}
                 strokeWidth={2}
@@ -984,7 +991,7 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
               <span className="truncate">{tab.label}</span>
               {tabs.length > 1 && (
                 <X
-                  className="w-4 h-4 text-gray-400 hover:text-gray-700 dark:hover:text-zinc-200 shrink-0 ml-1.5 opacity-60 hover:opacity-100"
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 hover:text-gray-700 dark:hover:text-zinc-200 shrink-0 ml-1.5 opacity-60 hover:opacity-100"
                   strokeWidth={2}
                   onClick={(e) => closeTab(tab.id, e)}
                 />
@@ -1013,22 +1020,22 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
           <img
             src="/watermark.png"
             alt=""
-            className="w-[660px] h-[660px] sm:w-[780px] sm:h-[780px] max-w-none object-contain opacity-[0.035] dark:opacity-[0.03]"
+            className="w-[440px] h-[440px] sm:w-[780px] sm:h-[780px] max-w-none object-contain opacity-[0.035] dark:opacity-[0.03]"
           />
         </div>
       )}
 
       {/* Scrollable Message List or Empty State */}
       <div className="flex-1 min-h-0 flex flex-col items-center overflow-y-auto overflow-x-hidden relative z-10 w-full max-w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-        {isEmpty ? (
-          <div className="relative flex-1 flex flex-col items-center justify-center w-full px-4 sm:px-6 py-8 sm:py-10 my-auto">
-            <div className="w-full max-w-[1050px] mx-auto mb-8 flex justify-center">
+                {isEmpty ? (
+          <div className="relative flex-1 min-h-full flex flex-col items-center justify-between sm:justify-center w-full px-3 sm:px-6 pt-3 pb-8 sm:py-10 sm:my-auto">
+            <div className="w-full max-w-[1050px] mx-auto flex-1 sm:flex-initial flex flex-col items-center justify-center mb-3 sm:mb-8">
               <ChatEmptyState />
             </div>
 
             <div 
-              className="relative z-10 w-full max-w-[1050px] mx-auto flex justify-center mt-24 sm:mt-32 translate-y-[2cm]"
-              style={{ transform: "translateY(2cm)" }}
+              className="relative z-10 w-full max-w-[1050px] mx-auto flex justify-center mt-auto sm:mt-24 sm:translate-y-[2cm] pb-4 sm:pb-0 mb-4 sm:mb-0"
+              style={isDesktop ? { transform: "translateY(2cm)" } : undefined}
             >
               <ChatComposer 
                 input={input} 
@@ -1051,7 +1058,7 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
           </div>
         ) : (
           <div
-            className="w-full max-w-[1050px] mx-auto px-4 sm:px-6 py-6 space-y-5 sm:space-y-6 flex flex-col items-center"
+            className="w-full max-w-[1050px] mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-6 flex flex-col items-center"
           >
             {messages.map((msg) => (
               <div
@@ -1059,27 +1066,27 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
                 className={`w-full flex items-start gap-2 sm:gap-2.5 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 {msg.role === "ai" && (
-                  <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 flex items-center justify-center shrink-0 mt-2 sm:mt-2.5 select-none">
+                  <div className="w-7 h-7 sm:w-8.5 sm:h-8.5 flex items-center justify-center shrink-0 mt-1.5 sm:mt-2.5 select-none">
                     <img
                       src="/watermark.png"
                       alt="Rivinity"
-                      className="w-7.5 h-7.5 sm:w-8 sm:h-8 object-contain"
+                      className="w-6.5 h-6.5 sm:w-8 sm:h-8 object-contain"
                     />
                   </div>
                 )}
 
                 <div className={cn(
-                  "group max-w-[90%] sm:max-w-[85%] flex flex-col",
+                  "group max-w-[95%] sm:max-w-[85%] flex flex-col",
                   msg.role === "user" ? "items-end" : "items-start"
                 )}>
                   {msg.role === "ai" && msg.content.startsWith(SKILL_MARKER) ? (
                     <SkillResultCard skillId={msg.content.slice(SKILL_MARKER.length)} />
                   ) : (
                     <div
-                      className={`w-fit text-[15px] sm:text-[15.5px] leading-relaxed break-words ${
+                      className={`w-fit text-[14.5px] sm:text-[15.5px] leading-relaxed break-words ${
                         msg.role === "user"
                           ? "px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl rounded-br-xs bg-[#FF5500] text-white shadow-[0_1px_3px_rgba(255,85,0,0.25)] whitespace-pre-wrap font-normal"
-                          : "px-5 py-3.5 sm:px-5.5 sm:py-4 rounded-2xl rounded-bl-xs bg-white dark:bg-zinc-900 border border-gray-200/75 dark:border-zinc-800/80 text-[#1C1C1C] dark:text-zinc-100 shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)] font-normal"
+                          : "px-4 py-3 sm:px-5.5 sm:py-4 rounded-2xl rounded-bl-xs bg-white dark:bg-zinc-900 border border-gray-200/75 dark:border-zinc-800/80 text-[#1C1C1C] dark:text-zinc-100 shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)] font-normal"
                       }`}
                     >
                       {msg.role === "user" ? msg.content : <ChatMarkdown content={msg.content} />}
@@ -1091,17 +1098,17 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
                       <>
                         <button 
                           onClick={() => setInput(msg.content)} 
-                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
+                          className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
                           title="Edit prompt"
                         >
-                          <Pencil className="w-4 h-4" strokeWidth={2} />
+                          <Pencil className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
                         <button 
                           onClick={() => { navigator.clipboard.writeText(msg.content); toast.success("Copied!"); }} 
-                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
+                          className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
                           title="Copy"
                         >
-                          <Copy className="w-4 h-4" strokeWidth={2} />
+                          <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
                         <button 
                           onClick={() => {
@@ -1112,20 +1119,20 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
                               toast.success("Copied to clipboard for sharing!");
                             }
                           }} 
-                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
+                          className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
                           title="Share"
                         >
-                          <Share2 className="w-4 h-4" strokeWidth={2} />
+                          <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
                       </>
                     ) : (
                       <>
                         <button 
                           onClick={() => { navigator.clipboard.writeText(msg.content); toast.success("Copied!"); }} 
-                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
+                          className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
                           title="Copy"
                         >
-                          <Copy className="w-4 h-4" strokeWidth={2} />
+                          <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
 
                         <button 
@@ -1137,22 +1144,22 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
                               toast.success("Copied to clipboard for sharing!");
                             }
                           }} 
-                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
+                          className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" 
                           title="Share"
                         >
-                          <Share2 className="w-4 h-4" strokeWidth={2} />
+                          <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
 
-                        <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" title="Regenerate">
-                          <RefreshCw className="w-4 h-4" strokeWidth={2} />
+                        <button className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 hover:text-gray-700 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors cursor-pointer" title="Regenerate">
+                          <RefreshCw className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
 
-                        <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 dark:text-zinc-500 transition-colors cursor-pointer" title="Helpful">
-                          <ThumbsUp className="w-4 h-4" strokeWidth={2} />
+                        <button className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 dark:text-zinc-500 transition-colors cursor-pointer" title="Helpful">
+                          <ThumbsUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
 
-                        <button className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 dark:text-zinc-500 transition-colors cursor-pointer" title="Unhelpful">
-                          <ThumbsDown className="w-4 h-4" strokeWidth={2} />
+                        <button className="p-1 sm:p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-400 dark:text-zinc-500 transition-colors cursor-pointer" title="Unhelpful">
+                          <ThumbsDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2} />
                         </button>
                       </>
                     )}
@@ -1163,17 +1170,17 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
 
             {isThinking && (
               <div className="w-full flex items-start gap-2 sm:gap-2.5 justify-start">
-                <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 flex items-center justify-center shrink-0 mt-2 sm:mt-2.5 select-none">
+                <div className="w-7 h-7 sm:w-8.5 sm:h-8.5 flex items-center justify-center shrink-0 mt-1.5 sm:mt-2.5 select-none">
                   <img
                     src="/watermark.png"
                     alt="Rivinity"
-                    className="w-7.5 h-7.5 sm:w-8 sm:h-8 object-contain"
+                    className="w-6.5 h-6.5 sm:w-8 sm:h-8 object-contain"
                   />
                 </div>
-                <div className="px-5 py-3.5 rounded-2xl rounded-bl-sm bg-white dark:bg-zinc-900 border border-gray-200/75 dark:border-zinc-800/80 flex items-center gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5500] animate-bounce [animation-delay:-0.3s]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5500] animate-bounce [animation-delay:-0.15s] text-white" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5500] animate-bounce text-white" />
+                <div className="px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl rounded-bl-sm bg-white dark:bg-zinc-900 border border-gray-200/75 dark:border-zinc-800/80 flex items-center gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.03)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+                  <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#FF5500] animate-bounce [animation-delay:-0.3s]" />
+                  <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#FF5500] animate-bounce [animation-delay:-0.15s] text-white" />
+                  <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#FF5500] animate-bounce text-white" />
                 </div>
               </div>
             )}
@@ -1184,7 +1191,7 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
 
       {/* Pinned Bottom Composer */}
       {!isEmpty && (
-        <div className="px-3 sm:px-4 pb-5 pt-2.5 flex justify-center items-center bg-gradient-to-t from-[#FAF9F7] dark:from-zinc-950 via-[#FAF9F7]/95 dark:via-zinc-950/95 to-transparent shrink-0 relative z-10 w-full">
+        <div className="px-2.5 sm:px-4 pb-3 sm:pb-5 pt-2 sm:pt-2.5 flex justify-center items-center bg-gradient-to-t from-[#FAF9F7] dark:from-zinc-950 via-[#FAF9F7]/95 dark:via-zinc-950/95 to-transparent shrink-0 relative z-10 w-full">
           <div className="w-full max-w-[1050px] mx-auto flex justify-center">
             <ChatComposer
               input={input}
@@ -1209,7 +1216,7 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
     </div>
   );
 
-  // SPLIT SCREEN: Left = AI chat (20%), Right = Big Data dashboard (80%)
+  // SPLIT SCREEN: Left = AI chat (50%), Right = Big Data dashboard (50%)
   // Only rendered when a prompt containing "big data" has been submitted!
   if (isDashboardActive) {
     return (
@@ -1218,20 +1225,56 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
         data-split-view="true"
         className="flex-1 flex flex-col lg:flex-row min-w-0 min-h-0 h-full w-full overflow-hidden relative select-none lg:select-auto"
       >
-        {/* Left Panel: AI Chat (20% width) */}
+        {/* Mobile View Switcher (Only visible on mobile/tablet screens < 1024px) */}
+        {!isDesktop && (
+          <div className="flex items-center justify-between px-3.5 py-2 bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800 shrink-0 z-30 w-full">
+            <div className="flex items-center gap-1 p-1 bg-gray-100 dark:bg-zinc-800 rounded-xl mx-auto text-xs font-semibold">
+              <button
+                type="button"
+                onClick={() => setMobileTab("chat")}
+                className={cn(
+                  "px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer",
+                  mobileTab === "chat"
+                    ? "bg-white dark:bg-zinc-700 text-[#FF5500] shadow-xs"
+                    : "text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white"
+                )}
+              >
+                <span>AI Chat</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setMobileTab("dashboard")}
+                className={cn(
+                  "px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer",
+                  mobileTab === "dashboard"
+                    ? "bg-[#FF5500] text-white shadow-xs"
+                    : "text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white"
+                )}
+              >
+                <BarChart3 className="w-3.5 h-3.5" />
+                <span>Big Data</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Left Panel: AI Chat (50% width on desktop, 100% on mobile) */}
         <div 
-          className="h-full flex flex-col border-b lg:border-b-0 border-gray-200 dark:border-zinc-800 min-w-0 min-h-0 overflow-hidden shrink-0 transition-all duration-300"
+          className={cn(
+            "h-full flex flex-col border-b lg:border-b-0 border-gray-200 dark:border-zinc-800 min-w-0 min-h-0 overflow-hidden shrink-0 transition-all duration-300",
+            !isDesktop && mobileTab !== "chat" && "hidden"
+          )}
           style={isDesktop ? { width: `${splitPercent}%` } : { width: "100%" }}
         >
           {chatView}
         </div>
 
-        {/* Draggable Divider with Grab Handle */}
+        {/* Draggable Divider with Grab Handle (Desktop only) */}
         <div
           onMouseDown={handleDragStart}
           onTouchStart={handleTouchStart}
           onDoubleClick={handleResetSplit}
-          title="Drag left or right to resize panels (Double-click to reset to 20/80)"
+          title="Drag left or right to resize panels (Double-click to reset to 50/50)"
           className={`hidden lg:flex items-center justify-center w-3.5 -mx-[7px] relative z-30 cursor-col-resize select-none group h-full shrink-0 transition-colors ${
             isDragging ? "bg-[#FF5500]/10" : ""
           }`}
@@ -1257,15 +1300,16 @@ const CanvasMain: React.FC<CanvasMainProps> = ({ onChatStateChange, onToggleSide
           </div>
         </div>
 
-        {/* Right Panel: Big Data Page (80% width) - Header successfully removed */}
+        {/* Right Panel: Big Data Page (50% width on desktop, 100% on mobile) */}
         <div 
           data-dashboard="true"
-          className="h-full flex flex-col overflow-y-auto min-w-0 min-h-0 flex-1 bg-white dark:bg-zinc-950 transition-all duration-500 ease-out animate-in fade-in slide-in-from-right-8"
+          className={cn(
+            "h-full flex flex-col min-w-0 min-h-0 flex-1 bg-white dark:bg-zinc-900 overflow-hidden",
+            !isDesktop && mobileTab !== "dashboard" && "hidden"
+          )}
           style={isDesktop ? { width: `${100 - splitPercent}%` } : { width: "100%" }}
         >
-          <div className="flex-1 overflow-y-auto">
-            <DIFeasibilityDashboard />
-          </div>
+          <DIFeasibilityDashboard />
         </div>
       </div>
     );
